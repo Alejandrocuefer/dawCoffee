@@ -10,20 +10,22 @@ package Cafetera;
  * @author alex
  */
 public enum Productos {
-    CAFE_SOLO (10,0,0,10),
-    CAFE_LECHE (10,10,0,0),
-    CAFE_LARGO (17,0,0,3),
-    CAFE_CORTADO (15,5,0,0),
-    CHOCO (0,5,15,0),
-    LECHE (0,20,0,0);
+    CAFE_SOLO ("Cafe solo", 10,0,0,10),
+    CAFE_LECHE ("Cafe con leche", 10,10,0,0),
+    CAFE_LARGO ("Cafe largo", 17,0,0,3),
+    CAFE_CORTADO ("Cafe cortado", 15,5,0,0),
+    CHOCO ("Chocolate", 0,5,15,0),
+    LECHE ("Leche", 0,20,0,0);
     
+    private String nombre;
     private int cantidadCafe;
     private int cantidadLeche;
     private int cantidadChoco;
     private int cantidadAgua;
 
-    private Productos(int cantidadCafe, int cantidadLeche, int cantidadChoco,
+    private Productos(String nombre, int cantidadCafe, int cantidadLeche, int cantidadChoco,
             int cantidadAgua) {
+        this.nombre = nombre;
         this.cantidadCafe = cantidadCafe;
         this.cantidadLeche = cantidadLeche;
         this.cantidadChoco = cantidadChoco;
@@ -65,6 +67,10 @@ public enum Productos {
     @Override
     public String toString() {
         return "Productos{" + "cantidadCafe=" + cantidadCafe + ", cantidadLeche=" + cantidadLeche + ", cantidadChoco=" + cantidadChoco + '}';
+    }
+
+    public String getNombre() {
+        return nombre;
     }
 
     

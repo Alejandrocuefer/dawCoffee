@@ -11,4 +11,7 @@ package Cafetera;
  */
 public class Usuario {
     
+    private String userName;
+    private String password;
+    
 }

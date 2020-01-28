@@ -17,15 +17,31 @@ public class Deposito {
     
     //Depositos cafe, leche, agua, chocolate, azucar
     
-    public Deposito() {}
-
-    public Deposito(double cantidadMax, double capacidadUmbral, double capacidadActual) {
+    public Deposito() {
         this.cantidadMax = 1000;
         this.capacidadUmbral = 100;
+        this.capacidadActual = 1000;
+    }
+
+    public Deposito(double cantidadMax, double capacidadUmbral, double capacidadActual) {
+        this.cantidadMax = cantidadMax;
+        this.capacidadUmbral = capacidadUmbral;
         this.capacidadActual = capacidadActual;
     }
     
     public void restarCantidadDeposito(int cantidad){
+        if(this.capacidadActual <= capacidadUmbral){
+            System.out.println("Rellenar pronto el deposito");
+        }
         this.capacidadActual -= cantidad;
     }
+    
+    public void rellenarCantidadDeposito(){
+        this.capacidadActual = this.cantidadMax;
+    }
+    
+    public void mostrarCantidadDeposito(){
+        System.out.println("La cantidad actual es: " + this.capacidadActual);
+    }
+    
 }

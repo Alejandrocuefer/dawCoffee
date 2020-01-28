@@ -10,12 +10,14 @@ package Cafetera;
  * @author alex
  */
 public enum Productos {
-    CAFE_SOLO (1,"Cafe solo", 10,0,0,10),
-    CAFE_LECHE (2,"Cafe con leche", 10,10,0,0),
-    CAFE_LARGO (3,"Cafe largo", 17,0,0,3),
-    CAFE_CORTADO (4,"Cafe cortado", 15,5,0,0),
-    CHOCO (5,"Chocolate", 0,5,15,0),
-    LECHE (6,"Leche", 0,20,0,0);
+                //Codigo, Nombre, Café, Leche, Chocolate, Agua
+    CAFE_SOLO (1, "Cafe solo", 10, 0, 0, 10, 0.80), 
+    CAFE_LECHE (2, "Cafe con leche", 10, 10 ,0 ,0, 1.10),
+    CAFE_LARGO (3, "Cafe largo", 17, 0, 0 ,3, 0.90),
+    CAFE_CORTADO (4, "Cafe cortado", 15, 5, 0, 0, 1),
+    CHOCO (5, "Chocolate", 0, 5, 15, 0, 1.40),
+    LECHE (6, "Leche", 0, 20, 0, 0, 0.50);
+    
     
     private int codigoProducto;
     private String nombre;
@@ -23,16 +25,18 @@ public enum Productos {
     private int cantidadLeche;
     private int cantidadChoco;
     private int cantidadAgua;
-    private int precio;
+    private double precio;
 
+    
     private Productos(int codigoProducto, String nombre, int cantidadCafe, int cantidadLeche, int cantidadChoco,
-            int cantidadAgua) {
+            int cantidadAgua, double precio) {
         this.codigoProducto = codigoProducto;
         this.nombre = nombre;
         this.cantidadCafe = cantidadCafe;
         this.cantidadLeche = cantidadLeche;
         this.cantidadChoco = cantidadChoco;
         this.cantidadAgua = cantidadAgua;
+        this.precio = precio;
     }
 
     public int getCodigoProducto() {
@@ -83,11 +87,11 @@ public enum Productos {
         this.cantidadAgua = cantidadAgua;
     }
 
-    public int getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(int precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
     

@@ -10,6 +10,17 @@ package Cafetera;
  * @author Gabriel
  */
 public class Cafetera {
+
+    private Deposito depositoCafe;
+    private Deposito depositoLeche;
+    private Deposito depositoChocolate;
+    private Deposito depositoAzucar;
+    private Deposito depositoAgua;
+    
+    private Usuario admin;
+    private Monedero monedero;
+    
+    private static int numeroVentas = 0;
     
     
 }

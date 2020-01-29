@@ -14,6 +14,7 @@ public class Deposito {
     private double cantidadMax;
     private double capacidadUmbral;
     private double capacidadActual;
+    private EnumDepositos deposito;
     
     //Depositos cafe, leche, agua, chocolate, azucar
     
@@ -21,12 +22,15 @@ public class Deposito {
         this.cantidadMax = 1000;
         this.capacidadUmbral = 100;
         this.capacidadActual = 1000;
+        this.deposito = deposito;
     }
 
-    public Deposito(double cantidadMax, double capacidadUmbral, double capacidadActual) {
+    public Deposito(double cantidadMax, double capacidadUmbral, double capacidadActual,
+            EnumDepositos deposito) {
         this.cantidadMax = cantidadMax;
         this.capacidadUmbral = capacidadUmbral;
         this.capacidadActual = capacidadActual;
+        this.deposito = deposito;
     }
     
     public void restarCantidadDeposito(int cantidad){
@@ -42,6 +46,38 @@ public class Deposito {
     
     public void mostrarCantidadDeposito(){
         System.out.println("La cantidad actual es: " + this.capacidadActual);
+    }
+
+    public double getCantidadMax() {
+        return cantidadMax;
+    }
+
+    public void setCantidadMax(double cantidadMax) {
+        this.cantidadMax = cantidadMax;
+    }
+
+    public double getCapacidadUmbral() {
+        return capacidadUmbral;
+    }
+
+    public void setCapacidadUmbral(double capacidadUmbral) {
+        this.capacidadUmbral = capacidadUmbral;
+    }
+
+    public double getCapacidadActual() {
+        return capacidadActual;
+    }
+
+    public void setCapacidadActual(double capacidadActual) {
+        this.capacidadActual = capacidadActual;
+    }
+
+    public EnumDepositos getDeposito() {
+        return deposito;
+    }
+
+    public void setDeposito(EnumDepositos deposito) {
+        this.deposito = deposito;
     }
     
 }

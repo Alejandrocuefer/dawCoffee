@@ -16,6 +16,8 @@ public class Menu {
     Scanner teclado = new Scanner(System.in);
 
     public void MenuPrincipal() {
+        int opcionMenuPrincipal;
+        do {
         System.out.println("-------------------------");
         System.out.println("-Bienvenido a daw coffee-");
         System.out.println("-------------------------");
@@ -24,28 +26,35 @@ public class Menu {
         System.out.println("-------------------------");
         System.out.println("-------- 3.Salir --------");
         System.out.println("-------------------------");
-        int opcionMenuPrincipal = teclado.nextInt();
+        opcionMenuPrincipal = teclado.nextInt();
+        } while (opcionMenuPrincipal <= 3 && opcionMenuPrincipal >= 1);
     }
 
     public void MenuProducto() {
-        System.out.println("------------------------");
-        System.out.println("------ Daw Coffee ------");
-        System.out.println("------------------------");
-        System.out.println("-Selecciona un producto-");
-        System.out.println("------------------------");
-        System.out.println("------ 1.Cafe solo------");
-        System.out.println("--- 2.Cafe con leche ---");
-        System.out.println("----- 3- Cafe largo ----");
-        System.out.println("---- 4.Cafe cortado ----");
-        System.out.println("------ 5.Chocolate -----");
-        System.out.println("-------- 6.Leche -------");
-        System.out.println("------------------------");
-        System.out.println("-------- 7.Salir -------");
-        System.out.println("------------------------");
-        int opcionMenuProducto = teclado.nextInt();
+        int opcionMenuProducto;
+        do {
+            System.out.println("------------------------");
+            System.out.println("------ Daw Coffee ------");
+            System.out.println("------------------------");
+            System.out.println("-Selecciona un producto-");
+            System.out.println("------------------------");
+            System.out.println("------ 1.Cafe solo------");
+            System.out.println("--- 2.Cafe con leche ---");
+            System.out.println("----- 3- Cafe largo ----");
+            System.out.println("---- 4.Cafe cortado ----");
+            System.out.println("------ 5.Chocolate -----");
+            System.out.println("-------- 6.Leche -------");
+            System.out.println("------------------------");
+            System.out.println("-------- 7.Salir -------");
+            System.out.println("------------------------");
+            opcionMenuProducto = teclado.nextInt();
+        } while (opcionMenuProducto <= 7 && opcionMenuProducto >= 1);
+
     }
 
     public void MenuAzucar() {
+        int opcionMenuAzucar;
+        do{
         System.out.println("------------------------");
         System.out.println("-Seleccione la cantidad-");
         System.out.println("-------de azucar--------");
@@ -56,16 +65,18 @@ public class Menu {
         System.out.println("------------------------");
         System.out.println("------- 4. Volver ------");
         System.out.println("------------------------");
-        int opcionMenuAzucar = teclado.nextInt();
+        opcionMenuAzucar = teclado.nextInt();
+        } while (opcionMenuAzucar <= 4 && opcionMenuAzucar >= 1);
     }
 
     public void MenuLogInUsuario() {
+        
         System.out.println("----------------------------");
         System.out.println("--Inserte sus credenciales--");
         System.out.println("----------------------------");
         System.out.println("-- Usuario:               --");
         System.out.println("----------------------------");
-        int opcionMenuLogInUsuario = teclado.nextInt();
+        String opcionMenuLogInUsuario = teclado.nextLine();
     }
 
     public void MenuLogInPassword() {
@@ -74,10 +85,12 @@ public class Menu {
         System.out.println("----------------------------");
         System.out.println("-- Contraseña:          ----");
         System.out.println("----------------------------");
-        int opcionMenuLogInPassword = teclado.nextInt();
+        String opcionMenuLogInPassword = teclado.nextLine();
     }
 
     public void MenuDepositos() {
+        int opcionMenuDepositos;
+        do{
         System.out.println("------------------------");
         System.out.println("------- Depositos ------");
         System.out.println("------------------------");
@@ -89,19 +102,23 @@ public class Menu {
         System.out.println("------------------------");
         System.out.println("-------- 7.Salir -------");
         System.out.println("------------------------");
-        int opcionMenuDepositos = teclado.nextInt();
+        opcionMenuDepositos = teclado.nextInt();
+        } while (opcionMenuDepositos <= 7 && opcionMenuDepositos >= 1);
     }
 
     public void MenuDepositosAccion() {
+        int opcionMenuDepositosAccion;
+        do{
         System.out.println("------------------------");
         System.out.println("------- Depositos ------");
         System.out.println("------------------------");
         System.out.println("------ 1.Rellenar ------");
         System.out.println("- 2.Comprobar capacidad -");
         System.out.println("------------------------");
-        System.out.println("-------- 7.Salir -------");
+        System.out.println("-------- 3.Salir -------");
         System.out.println("------------------------");
-        int opcionMenuDepositosAccion = teclado.nextInt();
+        opcionMenuDepositosAccion = teclado.nextInt();
+        } while (opcionMenuDepositosAccion <= 3 && opcionMenuDepositosAccion >= 1);
     }
 
 }

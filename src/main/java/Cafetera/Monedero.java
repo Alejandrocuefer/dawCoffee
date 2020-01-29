@@ -10,7 +10,41 @@ package Cafetera;
  * @author Gabriel
  */
 public class Monedero {
+
+    public static int getNumeroVentas() {
+        return numeroVentas;
+    }
+
+    public static void setNumeroVentas(int aNumeroVentas) {
+        numeroVentas = aNumeroVentas;
+    }
     
     private double saldoAcumulado;
     private double saldoCliente;
+        
+    private static int numeroVentas = 0;
+
+    public Monedero() {
+        this.saldoAcumulado = 0;
+        this.saldoCliente = 0;
+    }
+
+    public double getSaldoAcumulado() {
+        return saldoAcumulado;
+    }
+
+    public void setSaldoAcumulado(double saldoAcumulado) {
+        this.saldoAcumulado = saldoAcumulado;
+    }
+
+    public double getSaldoCliente() {
+        return saldoCliente;
+    }
+
+    public void setSaldoCliente(double saldoCliente) {
+        this.saldoCliente = saldoCliente;
+    }
+
+    
+    
 }

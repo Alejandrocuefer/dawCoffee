@@ -109,6 +109,11 @@ public class Cafetera {
         return true;
     }
 
+    public boolean haySuficienteSaldo(Productos productoEscogido) {
+
+        return productoEscogido.getPrecio() <= this.monedero.getSaldoCliente();
+    }
+
    
 
     //GETTERS & SETTERS

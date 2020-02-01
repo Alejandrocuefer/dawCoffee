@@ -52,6 +52,47 @@ public class Cafetera {
         }while(aux != 3);
     }
 
+    public void venta() {
+
+        Productos productoEscogido;
+
+      
+          //  int dineroIntroducido = Menu.menuIntroducirDinero();
+         //   this.monedero.introducirDinero(dineroIntroducido);
+
+          
+            switch (Menu.menuProducto()) {
+                case 1:
+                    productoEscogido = Productos.CAFE_SOLO;
+                    break;
+                case 2:
+                    productoEscogido = Productos.CAFE_LECHE;
+                    break;
+                case 3:
+                    productoEscogido = Productos.CAFE_LARGO;
+                    break;
+               
+                case 4:
+                    productoEscogido = Productos.CAFE_CORTADO;
+                    break;
+                case 5:
+                    productoEscogido = Productos.CHOCO;
+                    break;
+                case 6:
+                    productoEscogido = Productos.LECHE;
+                    break;
+                default:
+                    productoEscogido = Productos.CAFE_SOLO;
+            }
+
+
+        Menu.menuAzucar();
+        
+        
+        
+    }
+    
+   
 
     //GETTERS & SETTERS
     public Deposito getDepositoCafe() {

@@ -13,8 +13,8 @@ public enum EnumDepositos {
     
     CAFE, 
     AGUA, 
-    LECHE, 
-    AZUCAR, 
-    CHOCOLATE;
+    LECHE,      
+    CHOCOLATE,
+    AZUCAR;
     
 }

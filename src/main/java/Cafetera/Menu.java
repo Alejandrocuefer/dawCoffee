@@ -33,7 +33,8 @@ public class Menu {
         return opcionMenuPrincipal;
     }
 
-    public void MenuProducto() {
+    public static int menuProducto() {
+        Scanner teclado = new Scanner(System.in);
         int opcionMenuProducto;
         do {
             System.out.println("------------------------");
@@ -52,46 +53,50 @@ public class Menu {
             System.out.println("------------------------");
             opcionMenuProducto = teclado.nextInt();
         } while (opcionMenuProducto <= 7 && opcionMenuProducto >= 1);
-
+            return opcionMenuProducto;
     }
 
-    public void MenuAzucar() {
+    public static int menuAzucar() {
+        Scanner teclado = new Scanner(System.in);
         int opcionMenuAzucar;
         do{
         System.out.println("------------------------");
         System.out.println("-Seleccione la cantidad-");
         System.out.println("-------de azucar--------");
         System.out.println("------------------------");
-        System.out.println("------- 1.Poco ---------");
-        System.out.println("------- 2.Normal -------");
-        System.out.println("------- 3.Mucho --------");
-        System.out.println("------------------------");
-        System.out.println("------- 4. Volver ------");
+        System.out.println("------- 1.Ninguna ------");
+        System.out.println("------- 2.Poca ---------");
+        System.out.println("------- 3.Mucha --------");
         System.out.println("------------------------");
         opcionMenuAzucar = teclado.nextInt();
-        } while (opcionMenuAzucar <= 4 && opcionMenuAzucar >= 1);
+        } while (opcionMenuAzucar <= 3 && opcionMenuAzucar >= 1);
+        return opcionMenuAzucar;
     }
 
-    public void MenuLogInUsuario() {
-        
+    public static String menuLogInUsuario() {
+        Scanner teclado = new Scanner(System.in);
         System.out.println("----------------------------");
         System.out.println("--Inserte sus credenciales--");
         System.out.println("----------------------------");
         System.out.println("-- Usuario:               --");
         System.out.println("----------------------------");
         String opcionMenuLogInUsuario = teclado.nextLine();
+        return opcionMenuLogInUsuario;
     }
 
-    public void MenuLogInPassword() {
+    public static String menuLogInPassword() {
+        Scanner teclado = new Scanner(System.in);
         System.out.println("----------------------------");
         System.out.println("--Inserte sus credenciales--");
         System.out.println("----------------------------");
         System.out.println("-- Contraseña:          ----");
         System.out.println("----------------------------");
         String opcionMenuLogInPassword = teclado.nextLine();
+        return opcionMenuLogInPassword;
     }
 
-    public void MenuDepositos() {
+    public static int menuDepositos() {
+        Scanner teclado = new Scanner(System.in);
         int opcionMenuDepositos;
         do{
         System.out.println("------------------------");
@@ -107,9 +112,11 @@ public class Menu {
         System.out.println("------------------------");
         opcionMenuDepositos = teclado.nextInt();
         } while (opcionMenuDepositos <= 7 && opcionMenuDepositos >= 1);
+        return opcionMenuDepositos;
     }
 
-    public void MenuDepositosAccion() {
+    public static int MenuDepositosAccion() {
+        Scanner teclado = new Scanner(System.in);
         int opcionMenuDepositosAccion;
         do{
         System.out.println("------------------------");
@@ -122,6 +129,7 @@ public class Menu {
         System.out.println("------------------------");
         opcionMenuDepositosAccion = teclado.nextInt();
         } while (opcionMenuDepositosAccion <= 3 && opcionMenuDepositosAccion >= 1);
+        return opcionMenuDepositosAccion;
     }
 
 }

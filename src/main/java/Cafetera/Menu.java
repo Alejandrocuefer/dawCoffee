@@ -28,7 +28,7 @@ public class Menu {
         System.out.println("-------- 3.Salir --------");
         System.out.println("-------------------------");
         opcionMenuPrincipal = teclado.nextInt();
-        } while (opcionMenuPrincipal <= 3 && opcionMenuPrincipal >= 1);
+        } while (opcionMenuPrincipal > 3 || opcionMenuPrincipal < 1);
         
         return opcionMenuPrincipal;
     }
@@ -52,7 +52,7 @@ public class Menu {
             System.out.println("-------- 7.Salir -------");
             System.out.println("------------------------");
             opcionMenuProducto = teclado.nextInt();
-        } while (opcionMenuProducto <= 7 && opcionMenuProducto >= 1);
+        } while (opcionMenuProducto > 7 || opcionMenuProducto < 1);
             return opcionMenuProducto;
     }
 
@@ -69,7 +69,7 @@ public class Menu {
         System.out.println("------- 3.Mucha --------");
         System.out.println("------------------------");
         opcionMenuAzucar = teclado.nextInt();
-        } while (opcionMenuAzucar <= 3 && opcionMenuAzucar >= 1);
+        } while (opcionMenuAzucar > 3 || opcionMenuAzucar < 1);
         return opcionMenuAzucar;
     }
 
@@ -111,7 +111,7 @@ public class Menu {
         System.out.println("-------- 7.Salir -------");
         System.out.println("------------------------");
         opcionMenuDepositos = teclado.nextInt();
-        } while (opcionMenuDepositos <= 7 && opcionMenuDepositos >= 1);
+        } while (opcionMenuDepositos > 7 || opcionMenuDepositos < 1);
         return opcionMenuDepositos;
     }
 
@@ -128,7 +128,7 @@ public class Menu {
         System.out.println("-------- 3.Salir -------");
         System.out.println("------------------------");
         opcionMenuDepositosAccion = teclado.nextInt();
-        } while (opcionMenuDepositosAccion <= 3 && opcionMenuDepositosAccion >= 1);
+        } while (opcionMenuDepositosAccion > 3 || opcionMenuDepositosAccion < 1);
         return opcionMenuDepositosAccion;
     }
 

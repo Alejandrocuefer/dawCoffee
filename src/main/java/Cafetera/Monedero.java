@@ -11,13 +11,6 @@ package Cafetera;
  */
 public class Monedero {
 
-    public static int getNumeroVentas() {
-        return numeroVentas;
-    }
-
-    public static void setNumeroVentas(int aNumeroVentas) {
-        numeroVentas = aNumeroVentas;
-    }
     
     private double saldoAcumulado;
     private double saldoCliente;
@@ -28,7 +21,15 @@ public class Monedero {
         this.saldoAcumulado = 0;
         this.saldoCliente = 0;
     }
+    
+     public static int getNumeroVentas() {
+        return numeroVentas;
+    }
 
+    public static void setNumeroVentas(int aNumeroVentas) {
+        numeroVentas = aNumeroVentas;
+    }
+    
     public double getSaldoAcumulado() {
         return saldoAcumulado;
     }

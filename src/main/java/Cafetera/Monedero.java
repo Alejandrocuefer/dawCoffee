@@ -22,6 +22,10 @@ public class Monedero {
         this.saldoCliente = 0;
     }
     
+    public void introducirDinero(int saldoIntroducido){         
+        this.saldoCliente += saldoIntroducido;
+    }
+    
      public static int getNumeroVentas() {
         return numeroVentas;
     }

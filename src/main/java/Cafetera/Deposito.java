@@ -22,7 +22,7 @@ public class Deposito {
         this.cantidadMax = 1000;
         this.capacidadUmbral = 100;
         this.capacidadActual = 1000;
-        this.deposito = deposito;
+        this.deposito = EnumDepositos.AGUA;
     }
 
     public Deposito(double cantidadMax, double capacidadUmbral, double capacidadActual,

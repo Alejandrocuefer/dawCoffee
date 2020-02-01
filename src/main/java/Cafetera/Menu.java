@@ -94,6 +94,10 @@ public class Menu {
         String opcionMenuLogInPassword = teclado.nextLine();
         return opcionMenuLogInPassword;
     }
+    
+    public static void logIncorrecto(){
+        System.out.println("Usuario o contraseña incorrectos.");
+    }
 
     public static int menuDepositos() {
         Scanner teclado = new Scanner(System.in);

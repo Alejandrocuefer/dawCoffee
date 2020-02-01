@@ -16,14 +16,14 @@ public class Cafetera {
     private Deposito depositoChocolate;
     private Deposito depositoAzucar;
     private Deposito depositoAgua;
-    
+
     private Usuario admin;
     private Monedero monedero;
 
     //CONSTRUCTOR
-    public Cafetera(Deposito depositoCafe, Deposito depositoLeche, Deposito depositoChocolate, 
-                    Deposito depositoAzucar, Deposito depositoAgua, Usuario admin, Monedero monedero) {
-        
+    public Cafetera(Deposito depositoCafe, Deposito depositoLeche, Deposito depositoChocolate,
+            Deposito depositoAzucar, Deposito depositoAgua, Usuario admin, Monedero monedero) {
+
         this.depositoCafe = depositoCafe;
         this.depositoLeche = depositoLeche;
         this.depositoChocolate = depositoChocolate;
@@ -32,11 +32,21 @@ public class Cafetera {
         this.admin = admin;
         this.monedero = monedero;
     }
-    
+
     //MÉTODOS
-    
-    
-    
+    public void inicializar() {
+        switch (Menu.menuPrincipal()) {
+            case 1:
+                this.venta();
+                break;
+
+            case 2:
+                this.administrar();
+                break;
+        }
+
+    }
+
     //GETTERS & SETTERS
     public Deposito getDepositoCafe() {
         return depositoCafe;
@@ -98,9 +108,5 @@ public class Cafetera {
     public String toString() {
         return "Cafetera{" + "depositoCafe=" + depositoCafe + ", depositoLeche=" + depositoLeche + ", depositoChocolate=" + depositoChocolate + ", depositoAzucar=" + depositoAzucar + ", depositoAgua=" + depositoAgua + ", admin=" + admin + ", monedero=" + monedero + '}';
     }
-    
-    
 
-    
-    
 }

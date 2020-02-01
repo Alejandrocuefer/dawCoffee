@@ -13,9 +13,10 @@ import java.util.Scanner;
  */
 public class Menu {
 
-    Scanner teclado = new Scanner(System.in);
+    
 
-    public void MenuPrincipal() {
+    public static int menuPrincipal() {
+        Scanner teclado = new Scanner(System.in);
         int opcionMenuPrincipal;
         do {
         System.out.println("-------------------------");
@@ -28,6 +29,8 @@ public class Menu {
         System.out.println("-------------------------");
         opcionMenuPrincipal = teclado.nextInt();
         } while (opcionMenuPrincipal <= 3 && opcionMenuPrincipal >= 1);
+        
+        return opcionMenuPrincipal;
     }
 
     public void MenuProducto() {

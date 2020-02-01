@@ -12,17 +12,18 @@ package Cafetera;
 public class Cafetera {
 
     private Deposito depositoCafe;
+    private Deposito depositoAgua;
     private Deposito depositoLeche;
     private Deposito depositoChocolate;
     private Deposito depositoAzucar;
-    private Deposito depositoAgua;
+    
 
     private Usuario admin;
     private Monedero monedero;
 
     //CONSTRUCTOR
-    public Cafetera(Deposito depositoCafe, Deposito depositoLeche, Deposito depositoChocolate,
-            Deposito depositoAzucar, Deposito depositoAgua, Usuario admin, Monedero monedero) {
+    public Cafetera(Deposito depositoCafe, Deposito depositoAgua, Deposito depositoLeche,
+            Deposito depositoChocolate, Deposito depositoAzucar, Usuario admin, Monedero monedero) {
 
         this.depositoCafe = depositoCafe;
         this.depositoLeche = depositoLeche;
@@ -35,7 +36,11 @@ public class Cafetera {
 
     //MÉTODOS
     public void inicializar() {
-        switch (Menu.menuPrincipal()) {
+         int aux; 
+        do{
+          aux = Menu.menuPrincipal();            
+        
+        switch (aux) {
             case 1:
                 this.venta();
                 break;
@@ -44,8 +49,9 @@ public class Cafetera {
                 this.administrar();
                 break;
         }
-
+        }while(aux != 3);
     }
+
 
     //GETTERS & SETTERS
     public Deposito getDepositoCafe() {

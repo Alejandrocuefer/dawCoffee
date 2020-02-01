@@ -114,7 +114,16 @@ public class Cafetera {
         return productoEscogido.getPrecio() <= this.monedero.getSaldoCliente();
     }
 
-   
+    public void administrar() {
+        String user = Menu.menuLogInUsuario();
+       String password = Menu.menuLogInPassword();
+        
+       if(user.equalsIgnoreCase(this.admin.getUserName()) || password.equalsIgnoreCase(this.admin.getPassword())){
+           
+           
+       }
+        
+    }
 
     //GETTERS & SETTERS
     public Deposito getDepositoCafe() {

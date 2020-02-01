@@ -92,6 +92,23 @@ public class Cafetera {
         
     }
     
+    
+    public boolean haySuficienteProducto(Productos productoEscogido){
+        if (productoEscogido.getCantidadAgua() >= this.depositoAgua.getCapacidadActual()){
+           return false;
+        } 
+        if (productoEscogido.getCantidadCafe() >= this.depositoCafe.getCapacidadActual()){
+           return false;
+        }
+        if (productoEscogido.getCantidadLeche() >= this.depositoLeche.getCapacidadActual()){
+           return false;
+        }
+        if (productoEscogido.getCantidadChoco() >= this.depositoChocolate.getCapacidadActual()){
+           return false;
+        }        
+        return true;
+    }
+
    
 
     //GETTERS & SETTERS

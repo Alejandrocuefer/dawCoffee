@@ -18,6 +18,11 @@ public class Usuario {
         this.userName = userName;
         this.password = password;
     }
+    
+    public void mostrarUsuario() {
+        System.out.println("Su usuario es: " +  this.userName);
+        System.out.println("Y su contraseña es: " +  this.password);
+    }
 
     public String getUserName() {
         return userName;

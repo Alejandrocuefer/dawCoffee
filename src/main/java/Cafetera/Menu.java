@@ -163,7 +163,7 @@ public class Menu {
     
     public static int menuSaldo() {
         Scanner teclado = new Scanner(System.in);
-        int opcionMenuPrincipal;
+        int opcionMenuSaldo;
         do {
             System.out.println("-------------------------");
             System.out.println("-No hay suficiente saldo-");
@@ -171,10 +171,40 @@ public class Menu {
             System.out.println("---- 1.Introducir más ---");
             System.out.println("--------- 2.Salir --------");
             System.out.println("-------------------------");
-            opcionMenuPrincipal = teclado.nextInt();
-        } while (opcionMenuPrincipal > 2 || opcionMenuPrincipal < 1);
+            opcionMenuSaldo = teclado.nextInt();
+        } while (opcionMenuSaldo > 2 || opcionMenuSaldo < 1);
 
-        return opcionMenuPrincipal;
+        return opcionMenuSaldo;
     }
+    
+    public static int menuRellenar() {
+        Scanner teclado = new Scanner(System.in);
+        int opcionMenuRellenar;
+        do {
+            System.out.println("--------------------------");
+            System.out.println("-¿Cómo quieres rellenar?-");
+            System.out.println("--------------------------");
+            System.out.println("------- 1. Entero --------");
+            System.out.println("---- 2. Con x cantidad ---");
+            System.out.println("--------------------------");
+            opcionMenuRellenar = teclado.nextInt();
+        } while (opcionMenuRellenar > 2 || opcionMenuRellenar < 1);
+
+        return opcionMenuRellenar;
+    }
+    
+    public static String menuRellenarCantidad() {
+        Scanner teclado = new Scanner(System.in);
+        System.out.println("----------------------------");
+        System.out.println("---- Inserte la cantidad ----");
+        System.out.println("----------------------------");
+        System.out.println("-- :                               --");
+        System.out.println("----------------------------");
+        String opcionMenuRellenarCantidad = teclado.nextLine();
+        return opcionMenuRellenarCantidad;
+    }
+    
+    
+
 
 }

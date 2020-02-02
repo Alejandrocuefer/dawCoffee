@@ -44,8 +44,16 @@ public class Deposito {
 
     }
 
-    public void rellenarCantidadDeposito() {
+    public void rellenarDeposito() {
         this.capacidadActual = this.cantidadMax;
+    }
+    
+    public void rellenarCantidadDeposito(int cantidad) {
+        if (cantidad > (cantidadMax-capacidadActual)){
+            System.out.println("te has colao'");
+        } else {
+            capacidadActual += cantidad;
+        }
     }
 
     public void mostrarCantidadDeposito() {

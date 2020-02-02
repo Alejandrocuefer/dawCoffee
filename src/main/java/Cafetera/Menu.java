@@ -30,6 +30,36 @@ public class Menu {
 
         return opcionMenuPrincipal;
     }
+    
+    public static double menuPagar() {
+        Scanner teclado = new Scanner(System.in);
+        int opcionMenuPagar;
+        do {
+            System.out.println("-------------------------");
+            System.out.println("-- Introduzca el dinero --");
+            System.out.println("-------------------------");
+            System.out.println("--:                             --");
+            System.out.println("--------------------------");
+            System.out.println("--------- 3.Salir ---------");
+            System.out.println("-------------------------");
+            opcionMenuPagar = teclado.nextInt();
+        } while (opcionMenuPagar > 0.50);
+
+        return opcionMenuPagar;
+    }
+    
+    public static int saldoInsuficiente() {
+        Scanner teclado = new Scanner(System.in);
+        int opcionSaldoInsuficiente;
+        System.out.println("----------------------------------------------------");
+        System.out.println("-----Saldo insuficiente el mínimo es 0,50 (leche)----");
+        System.out.println("---------------- ¿Introducir más? ------------------");
+        System.out.println("---------------------- 1. Si ------------------------");
+        System.out.println("------------------- 2. No (salir) --------------------");
+        System.out.println("----------------------------------------------------");
+        opcionSaldoInsuficiente = teclado.nextInt();
+        return opcionSaldoInsuficiente;
+    }
 
     public static int menuProducto() {
         Scanner teclado = new Scanner(System.in);

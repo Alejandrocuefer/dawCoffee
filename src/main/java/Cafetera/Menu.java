@@ -110,16 +110,16 @@ public class Menu {
             System.out.println("------- 4.Azucar -------");
             System.out.println("------ 5.Chocolate -----");
             System.out.println("------------------------");
-            System.out.println("-------- 7.Salir -------");
+            System.out.println("-------- 6.Salir -------");
             System.out.println("------------------------");
             opcionMenuDepositos = teclado.nextInt();
-        } while (opcionMenuDepositos > 7 || opcionMenuDepositos < 1);
+        } while (opcionMenuDepositos > 6 || opcionMenuDepositos < 1);
         return opcionMenuDepositos;
     }
 
-    public static int menuDepositosAccion() {
+    public static int menuAdministrar() {
         Scanner teclado = new Scanner(System.in);
-        int opcionMenuDepositosAccion = 0;
+        int opcionMenuAdministrar = 0;
 
         do {
 
@@ -128,19 +128,21 @@ public class Menu {
                 System.out.println("---------------------------");
                 System.out.println("-------- Depositos --------");
                 System.out.println("---------------------------");
-                System.out.println("-------- 1.Rellenar --------");
-                System.out.println("- 2.Comprobar capacidad -");
+                System.out.println("- 1.Comprobar depositos -");
+                System.out.println("-- 2.Comprobar estados --");
+                System.out.println("--- 3.Comprobar saldo ----");
+                System.out.println("-------- 4.Rellenar --------");
                 System.out.println("---------------------------");
-                System.out.println("---------- 3.Salir ---------");
+                System.out.println("---------- 5.Salir ---------");
                 System.out.println("---------------------------");
-                opcionMenuDepositosAccion = teclado.nextInt();
+                opcionMenuAdministrar = teclado.nextInt();
 
             } catch (IllegalArgumentException iae) {
                 System.out.println("Introduzca la opcion en formato numerico");
-                opcionMenuDepositosAccion = 430;
+                opcionMenuAdministrar = 430;
             }
-        } while (opcionMenuDepositosAccion > 3 || opcionMenuDepositosAccion < 1);
-        return opcionMenuDepositosAccion;
+        } while (opcionMenuAdministrar > 5 || opcionMenuAdministrar < 1);
+        return opcionMenuAdministrar;
         
     }
 
@@ -157,6 +159,22 @@ public class Menu {
             opcionMenuAzucar = teclado.nextInt();
         } while (opcionMenuAzucar > 2 || opcionMenuAzucar < 1);
         return opcionMenuAzucar;
+    }
+    
+    public static int menuSaldo() {
+        Scanner teclado = new Scanner(System.in);
+        int opcionMenuPrincipal;
+        do {
+            System.out.println("-------------------------");
+            System.out.println("-No hay suficiente saldo-");
+            System.out.println("-------------------------");
+            System.out.println("---- 1.Introducir más ---");
+            System.out.println("--------- 2.Salir --------");
+            System.out.println("-------------------------");
+            opcionMenuPrincipal = teclado.nextInt();
+        } while (opcionMenuPrincipal > 2 || opcionMenuPrincipal < 1);
+
+        return opcionMenuPrincipal;
     }
 
 }

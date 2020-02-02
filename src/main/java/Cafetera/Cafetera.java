@@ -53,7 +53,7 @@ public class Cafetera {
 
     public void venta() {
 
-        int dineroIntroducido = Menu.menuPagar();
+        double dineroIntroducido = Menu.menuPagar();
         this.monedero.introducirDinero(dineroIntroducido);
 
         Productos productoElegido = elegirProducto();

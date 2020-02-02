@@ -13,7 +13,7 @@ public class Monedero {
 
     
     private  double saldoAcumulado;
-    public static double saldoCliente;
+    public double saldoCliente;
         
     private static int numeroVentas = 0;
 
@@ -22,11 +22,11 @@ public class Monedero {
         this.saldoCliente = 0;
     }
     
-    public void introducirDinero(int saldoIntroducido){         
+    public void introducirDinero(double saldoIntroducido){         
         this.saldoCliente += saldoIntroducido;
     }
     
-    public void sumarSaldo(int saldoIntroducido){         
+    public void sumarSaldo(){         
         this.saldoAcumulado += saldoCliente;
     }
     
@@ -50,7 +50,7 @@ public class Monedero {
         this.saldoAcumulado = saldoAcumulado;
     }
 
-    public static double getSaldoCliente() {
+    public double getSaldoCliente() {
         return saldoCliente;
     }
 

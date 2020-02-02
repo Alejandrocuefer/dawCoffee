@@ -33,7 +33,7 @@ public class Menu {
     
     public static double menuPagar() {
         Scanner teclado = new Scanner(System.in);
-        int opcionMenuPagar;
+        double opcionMenuPagar;
         do {
             System.out.println("-------------------------");
             System.out.println("-- Introduzca el dinero --");

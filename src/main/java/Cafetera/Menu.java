@@ -117,38 +117,46 @@ public class Menu {
         return opcionMenuDepositos;
     }
 
-    public static int MenuDepositosAccion() {
+    public static int menuDepositosAccion() {
         Scanner teclado = new Scanner(System.in);
-        int opcionMenuDepositosAccion;
+        int opcionMenuDepositosAccion = 0;
+
         do {
-            System.out.println("------------------------");
-            System.out.println("------- Depositos ------");
-            System.out.println("------------------------");
-            System.out.println("------ 1.Rellenar ------");
-            System.out.println("- 2.Comprobar capacidad -");
-            System.out.println("------------------------");
-            System.out.println("-------- 3.Salir -------");
-            System.out.println("------------------------");
-            opcionMenuDepositosAccion = teclado.nextInt();
+
+            try {
+
+                System.out.println("---------------------------");
+                System.out.println("-------- Depositos --------");
+                System.out.println("---------------------------");
+                System.out.println("-------- 1.Rellenar --------");
+                System.out.println("- 2.Comprobar capacidad -");
+                System.out.println("---------------------------");
+                System.out.println("---------- 3.Salir ---------");
+                System.out.println("---------------------------");
+                opcionMenuDepositosAccion = teclado.nextInt();
+
+            } catch (IllegalArgumentException iae) {
+                System.out.println("Introduzca la opcion en formato numerico");
+                opcionMenuDepositosAccion = 430;
+            }
         } while (opcionMenuDepositosAccion > 3 || opcionMenuDepositosAccion < 1);
         return opcionMenuDepositosAccion;
-    }
-
-    public static boolean MenuSaldo(Productos producto) {
-
-        if (Monedero.saldoCliente < producto.getPrecio()) {
-            return false;
-        } else {
-            return false;
-        }
-    }
-
-    public static boolean MenuDescafeinado(){
-        boolean aux = false;
         
-        return aux;
     }
-            
 
+    public static int menuDescafeinado() {
+        Scanner teclado = new Scanner(System.in);
+        int opcionMenuAzucar;
+        do {
+            System.out.println("------------------------");
+            System.out.println("---- ¿Descafeinado? ---");
+            System.out.println("------------------------");
+            System.out.println("---------- 1.Si ---------");
+            System.out.println("--------- 2.No ---------");
+            System.out.println("------------------------");
+            opcionMenuAzucar = teclado.nextInt();
+        } while (opcionMenuAzucar > 2 || opcionMenuAzucar < 1);
+        return opcionMenuAzucar;
+    }
 
 }

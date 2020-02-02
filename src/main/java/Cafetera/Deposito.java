@@ -10,14 +10,13 @@ package Cafetera;
  * @author alex
  */
 public class Deposito {
-    
+
     private double cantidadMax;
     private double capacidadUmbral;
     private double capacidadActual;
     private EnumDepositos deposito;
-    
+
     //Depositos cafe, leche, agua, chocolate, azucar
-    
     public Deposito() {
         this.cantidadMax = 1000;
         this.capacidadUmbral = 100;
@@ -32,21 +31,34 @@ public class Deposito {
         this.capacidadActual = capacidadActual;
         this.deposito = deposito;
     }
-    
-    public void restarCantidadDeposito(int cantidad){
-        if(this.capacidadActual <= capacidadUmbral){
+
+    public void restarCantidadDeposito(int cantidad) {
+        if (this.capacidadActual <= capacidadUmbral && capacidadActual > cantidad) {
             System.out.println("Rellenar pronto el deposito");
+            this.capacidadActual -= cantidad;
+        } else if (capacidadActual <= cantidad) {
+            System.out.println("No queda");
+        } else {
+            this.capacidadActual -= cantidad;
         }
-        this.capacidadActual -= cantidad;
+
     }
-    
-    public void rellenarCantidadDeposito(){
+
+    public void rellenarCantidadDeposito() {
         this.capacidadActual = this.cantidadMax;
     }
-    
-    public void mostrarInfoDeposito(){
-        System.out.println("El deposito " + this.deposito + ", se encuentra con: ");
+
+    public void mostrarCantidadDeposito() {
         System.out.println("La cantidad actual es: " + this.capacidadActual);
+    }
+
+    public void mostrarInfoDeposito() {
+        System.out.println("El deposito " + this.deposito + ", se encuentra con: ");
+        if (this.capacidadActual <= capacidadUmbral) {
+            System.out.println("La cantidad actual es: " + this.capacidadActual);
+            System.out.println("Rellenar pronto el deposito");
+        }
+
         System.out.println("La capacidad umbral es: " + this.capacidadUmbral);
         System.out.println("La capacidad máxima es: " + this.cantidadMax);
     }
@@ -87,6 +99,5 @@ public class Deposito {
     public String toString() {
         return "Deposito: " + "cantidadMax=" + cantidadMax + ", capacidadUmbral=" + capacidadUmbral + ", capacidadActual=" + capacidadActual + ", deposito=" + deposito;
     }
-    
-    
+
 }

@@ -12,8 +12,8 @@ package Cafetera;
 public class Monedero {
 
     
-    private double saldoAcumulado;
-    private double saldoCliente;
+    private  double saldoAcumulado;
+    public static double saldoCliente;
         
     private static int numeroVentas = 0;
 
@@ -42,7 +42,7 @@ public class Monedero {
         this.saldoAcumulado = saldoAcumulado;
     }
 
-    public double getSaldoCliente() {
+    public static double getSaldoCliente() {
         return saldoCliente;
     }
 

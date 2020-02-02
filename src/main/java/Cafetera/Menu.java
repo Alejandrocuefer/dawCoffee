@@ -234,6 +234,9 @@ public class Menu {
         return opcionMenuRellenarCantidad;
     }
     
+    public static void comprado(String nomProducto)  {
+        System.out.println("Aqui tiene su " + nomProducto + ", gracias por su compra");
+    }
     
 
 

@@ -44,8 +44,11 @@ public class Deposito {
         this.capacidadActual = this.cantidadMax;
     }
     
-    public void mostrarCantidadDeposito(){
+    public void mostrarInfoDeposito(){
+        System.out.println("El deposito " + this.deposito + ", se encuentra con: ");
         System.out.println("La cantidad actual es: " + this.capacidadActual);
+        System.out.println("La capacidad umbral es: " + this.capacidadUmbral);
+        System.out.println("La capacidad máxima es: " + this.cantidadMax);
     }
 
     public double getCantidadMax() {
@@ -79,5 +82,11 @@ public class Deposito {
     public void setDeposito(EnumDepositos deposito) {
         this.deposito = deposito;
     }
+
+    @Override
+    public String toString() {
+        return "Deposito: " + "cantidadMax=" + cantidadMax + ", capacidadUmbral=" + capacidadUmbral + ", capacidadActual=" + capacidadActual + ", deposito=" + deposito;
+    }
+    
     
 }

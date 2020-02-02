@@ -26,6 +26,10 @@ public class Monedero {
         this.saldoCliente += saldoIntroducido;
     }
     
+    public void sumarSaldo(int saldoIntroducido){         
+        this.saldoAcumulado += saldoCliente;
+    }
+    
     public void mostrarSaldo() {
             System.out.println("La cafetera ha recaudado: " + this.saldoAcumulado);
     }

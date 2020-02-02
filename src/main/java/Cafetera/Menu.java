@@ -223,14 +223,14 @@ public class Menu {
         return opcionMenuRellenar;
     }
     
-    public static String menuRellenarCantidad() {
+    public static int menuRellenarCantidad() {
         Scanner teclado = new Scanner(System.in);
         System.out.println("----------------------------");
         System.out.println("---- Inserte la cantidad ----");
         System.out.println("----------------------------");
         System.out.println("-- :                               --");
         System.out.println("----------------------------");
-        String opcionMenuRellenarCantidad = teclado.nextLine();
+        int opcionMenuRellenarCantidad = teclado.nextInt();
         return opcionMenuRellenarCantidad;
     }
     

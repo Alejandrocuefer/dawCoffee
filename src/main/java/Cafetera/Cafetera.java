@@ -114,17 +114,117 @@ public class Cafetera {
         return productoEscogido.getPrecio() <= this.monedero.getSaldoCliente();
     }
 
-    public void administrar() {
+  public void administrar() {
         String user = Menu.menuLogInUsuario();
-       String password = Menu.menuLogInPassword();
-        
-       if(user.equalsIgnoreCase(this.admin.getUserName()) || password.equalsIgnoreCase(this.admin.getPassword())){
-           
-           
-       }
-        
+        String password = Menu.menuLogInPassword();
+
+        if (user.equals(this.admin.getUserName()) && password.equals(this.admin.getPassword())) {
+
+            int aux;
+
+            do {
+                aux = Menu.menuAdministrar();
+
+                switch (aux) {
+
+                    case 1:
+                        comprobarDeposito();
+                        break;
+                    case 2:
+                        comprobarEstadoGeneral();
+                        break;
+
+                    case 3:
+                        monedero.mostrarSaldo();
+                        break;
+                    case 4:
+                        rellenarDepositos();
+                        break;
+                }
+
+            } while (aux != 5);
+        }
+
     }
 
+    public void comprobarDeposito() {
+
+        Deposito depositoAComprobar = elegirDeposito();
+        
+        depositoAComprobar.mostrarInfoDeposito();
+      
+    }
+
+    public void comprobarEstadoGeneral() {
+
+        admin.mostrarUsuario();
+        depositoCafe.mostrarInfoDeposito();
+        depositoLeche.mostrarInfoDeposito();
+        depositoAgua.mostrarInfoDeposito();
+        depositoAzucar.mostrarInfoDeposito();
+        depositoChocolate.mostrarInfoDeposito();
+
+    }
+
+    public void consultarSaldoAcumulado() {
+
+        monedero.mostrarSaldo();
+
+    }
+
+    public void rellenarDepositos() {
+
+           Deposito depositoARellenar = elegirDeposito();
+            
+           int aux = Menu.menuRellenar();
+           
+           switch(aux){
+               
+               case 1:
+                   depositoARellenar.rellenarDeposito();
+                   break;
+                   
+               case 2:
+                   
+                   depositoARellenar.rellenarCantidadDeposito(Menu.menuRellenarCantidad());
+                   break;
+           }
+    }
+
+    public Deposito elegirDeposito() {
+        int aux;
+        Deposito depositoElegido;
+        do {
+            aux = Menu.menuDepositos();
+
+            switch (aux) {
+
+                case 1:
+                    depositoElegido = depositoCafe;
+                    break;
+                case 2:
+                    depositoElegido = depositoAgua;
+                    break;
+
+                case 3:
+                    depositoElegido = depositoLeche;
+                    break;
+                case 4:
+                    depositoElegido = depositoAzucar;
+                    break;
+                case 5:
+                    depositoElegido = depositoChocolate;
+                    break;
+                default:
+                    depositoElegido = depositoCafe;
+                    break;
+            }
+
+        } while (aux != 6);
+
+        return depositoElegido;
+    }
+    
     //GETTERS & SETTERS
     public Deposito getDepositoCafe() {
         return depositoCafe;

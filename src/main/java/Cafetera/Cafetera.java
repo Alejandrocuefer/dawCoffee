@@ -16,7 +16,6 @@ public class Cafetera {
     private Deposito depositoLeche;
     private Deposito depositoChocolate;
     private Deposito depositoAzucar;
-    
 
     private Usuario admin;
     private Monedero monedero;
@@ -36,76 +35,112 @@ public class Cafetera {
 
     //MÉTODOS
     public void inicializar() {
-         int aux; 
-        do{
-          aux = Menu.menuPrincipal();            
-        
-        switch (aux) {
-            case 1:
-                this.venta();
-                break;
+        int aux;
+        do {
+            aux = Menu.menuPrincipal();
 
-            case 2:
-                this.administrar();
-                break;
-        }
-        }while(aux != 3);
+            switch (aux) {
+                case 1:
+                    this.venta();
+                    break;
+
+                case 2:
+                    this.administrar();
+                    break;
+            }
+        } while (aux != 3);
     }
 
     public void venta() {
 
-        Productos productoEscogido;
+        int dineroIntroducido = Menu.menuPagar();
+        this.monedero.introducirDinero(dineroIntroducido);
 
-      
-          //  int dineroIntroducido = Menu.menuIntroducirDinero();
-         //   this.monedero.introducirDinero(dineroIntroducido);
+        Productos productoElegido = elegirProducto();
 
-          
-            switch (Menu.menuProducto()) {
+        if (haySuficienteSaldo(productoElegido)) {
+            
+           int cantidadAzucar = cantidadAzucar();
+           
+           if(haySuficienteProducto(productoElegido, cantidadAzucar)){
+               
+               cogerIngredientes(productoElegido, cantidadAzucar);
+               
+               monedero.sumarSaldo();
+               monedero.setSaldoCliente(0);
+               
+           }
+            
+            
+        } else {          
+            introducirMasDinero();
+
+        }
+
+    }
+
+    public Productos elegirProducto() {
+        int aux;
+        Productos productoElegido;
+        do {
+            aux = Menu.menuProducto();
+
+            switch (aux) {
+
                 case 1:
-                    productoEscogido = Productos.CAFE_SOLO;
+                    productoElegido = Productos.CAFE_SOLO;
                     break;
                 case 2:
-                    productoEscogido = Productos.CAFE_LECHE;
+                    productoElegido = Productos.CAFE_LECHE;
                     break;
                 case 3:
-                    productoEscogido = Productos.CAFE_LARGO;
+                    productoElegido = Productos.CAFE_LARGO;
                     break;
-               
                 case 4:
-                    productoEscogido = Productos.CAFE_CORTADO;
+                    productoElegido = Productos.CAFE_CORTADO;
                     break;
                 case 5:
-                    productoEscogido = Productos.CHOCO;
+                    productoElegido = Productos.CHOCO;
                     break;
                 case 6:
-                    productoEscogido = Productos.LECHE;
+                    productoElegido = Productos.LECHE;
                     break;
                 default:
-                    productoEscogido = Productos.CAFE_SOLO;
+                    productoElegido = Productos.CAFE_SOLO;
+                    break;
             }
 
+        } while (aux != 7);
 
-        Menu.menuAzucar();
-        
-        
-        
+        return productoElegido;
     }
     
-    
-    public boolean haySuficienteProducto(Productos productoEscogido){
-        if (productoEscogido.getCantidadAgua() >= this.depositoAgua.getCapacidadActual()){
-           return false;
-        } 
-        if (productoEscogido.getCantidadCafe() >= this.depositoCafe.getCapacidadActual()){
-           return false;
+    public void cogerIngredientes(Productos productoEscogido, int cantidadAzucar){
+        
+                depositoCafe.rellenarCantidadDeposito(productoEscogido.getCantidadCafe());
+                depositoAgua.rellenarCantidadDeposito(productoEscogido.getCantidadCafe());
+                depositoLeche.rellenarCantidadDeposito(productoEscogido.getCantidadCafe());
+                depositoAzucar.rellenarCantidadDeposito(cantidadAzucar);
+                depositoChocolate.rellenarCantidadDeposito(productoEscogido.getCantidadCafe());
+        
+    }
+
+    public boolean haySuficienteProducto(Productos productoEscogido, int cantidadAzucar) {
+        if (productoEscogido.getCantidadAgua() >= this.depositoAgua.getCapacidadActual()) {
+            return false;
         }
-        if (productoEscogido.getCantidadLeche() >= this.depositoLeche.getCapacidadActual()){
-           return false;
+        if (productoEscogido.getCantidadCafe() >= this.depositoCafe.getCapacidadActual()) {
+            return false;
         }
-        if (productoEscogido.getCantidadChoco() >= this.depositoChocolate.getCapacidadActual()){
-           return false;
-        }        
+        if (productoEscogido.getCantidadLeche() >= this.depositoLeche.getCapacidadActual()) {
+            return false;
+        }
+        if (productoEscogido.getCantidadChoco() >= this.depositoChocolate.getCapacidadActual()) {
+            return false;
+        }
+        if (cantidadAzucar >= this.depositoAzucar.getCapacidadActual()) {
+            return false;
+        }
         return true;
     }
 
@@ -113,8 +148,51 @@ public class Cafetera {
 
         return productoEscogido.getPrecio() <= this.monedero.getSaldoCliente();
     }
+    
+    public int cantidadAzucar(){
+        int aux;        
+        int cantidadAzucar;
+       
+            aux = Menu.menuAzucar();
+            
+            switch(aux){
+                
+                case 1:
+                    cantidadAzucar = 0;
+                    break;
+                case 2:
+                    cantidadAzucar = 2;
+                    break;
+                case 3:
+                    cantidadAzucar = 4;
+                    break;
+                default:
+                    cantidadAzucar = 0;
+            }
+            
+            return cantidadAzucar;
+        
+    }
 
-  public void administrar() {
+    public void introducirMasDinero() {
+
+        int aux = Menu.saldoInsuficiente();
+
+        do {
+            switch (aux) {
+                case 1:
+                    Menu.menuPagar();
+                    break;
+                case 2:
+                    break;
+                default:
+                    aux = 2;
+                    break;
+            }
+        } while (aux != 2);
+    }
+
+    public void administrar() {
         String user = Menu.menuLogInUsuario();
         String password = Menu.menuLogInPassword();
 
@@ -150,9 +228,9 @@ public class Cafetera {
     public void comprobarDeposito() {
 
         Deposito depositoAComprobar = elegirDeposito();
-        
+
         depositoAComprobar.mostrarInfoDeposito();
-      
+
     }
 
     public void comprobarEstadoGeneral() {
@@ -174,21 +252,21 @@ public class Cafetera {
 
     public void rellenarDepositos() {
 
-           Deposito depositoARellenar = elegirDeposito();
-            
-           int aux = Menu.menuRellenar();
-           
-           switch(aux){
-               
-               case 1:
-                   depositoARellenar.rellenarDeposito();
-                   break;
-                   
-               case 2:
-                   
-                   depositoARellenar.rellenarCantidadDeposito(Menu.menuRellenarCantidad());
-                   break;
-           }
+        Deposito depositoARellenar = elegirDeposito();
+
+        int aux = Menu.menuRellenar();
+
+        switch (aux) {
+
+            case 1:
+                depositoARellenar.rellenarDeposito();
+                break;
+
+            case 2:
+
+                depositoARellenar.rellenarCantidadDeposito(Menu.menuRellenarCantidad());
+                break;
+        }
     }
 
     public Deposito elegirDeposito() {
@@ -205,7 +283,6 @@ public class Cafetera {
                 case 2:
                     depositoElegido = depositoAgua;
                     break;
-
                 case 3:
                     depositoElegido = depositoLeche;
                     break;
@@ -224,7 +301,7 @@ public class Cafetera {
 
         return depositoElegido;
     }
-    
+
     //GETTERS & SETTERS
     public Deposito getDepositoCafe() {
         return depositoCafe;

@@ -35,13 +35,13 @@ public class Menu {
         Scanner teclado = new Scanner(System.in);
         double opcionMenuPagar;
         do {
-            System.out.println("-------------------------");
-            System.out.println("-- Introduzca el dinero --");
-            System.out.println("-------------------------");
-            System.out.println("--:                             --");
             System.out.println("--------------------------");
-            System.out.println("--------- 3.Salir ---------");
-            System.out.println("-------------------------");
+            System.out.println("-- Introduzca el dinero --");
+            System.out.println("--------------------------");
+            System.out.println("--:                     --");
+            System.out.println("--------------------------");
+            System.out.println("--------- 3.Salir --------");
+            System.out.println("--------------------------");
             opcionMenuPagar = teclado.nextInt();
         } while (opcionMenuPagar > 0.50);
 

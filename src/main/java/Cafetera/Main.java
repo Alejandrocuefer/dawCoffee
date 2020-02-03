@@ -16,6 +16,7 @@ public class Main {
      */
     public static void main(String[] args) {
 
+        //Crea los objetos necesarios
         Deposito depositoCafe = new Deposito(1000, 200, 500, EnumDepositos.CAFE);
         Deposito depositoAgua = new Deposito(1000, 200, 500, EnumDepositos.AGUA);
         Deposito depositoLeche = new Deposito(1000, 200, 500, EnumDepositos.LECHE);
@@ -23,11 +24,11 @@ public class Main {
         Deposito depositoAzucar = new Deposito(1000, 200, 500, EnumDepositos.AZUCAR);
 
         Usuario admin = new Usuario("Pepe", "1234");
-
         Monedero monedero = new Monedero();
-
+        //Crea la cafetera con los objetos creado previamente
         Cafetera cafetera = new Cafetera(depositoCafe, depositoAgua, depositoLeche, depositoChoco, depositoAzucar, admin, monedero);
         
+        //Inicializamos todo el programa, a partir de ahora todo el flujo de ejecución va por la cafetera
         cafetera.inicializar();
     }
 

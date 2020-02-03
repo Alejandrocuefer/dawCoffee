@@ -158,12 +158,12 @@ public class Menu {
                 System.out.println("---------------------------");
                 System.out.println("-------- Depositos --------");
                 System.out.println("---------------------------");
-                System.out.println("- 1.Comprobar depositos -");
-                System.out.println("-- 2.Comprobar estados --");
-                System.out.println("--- 3.Comprobar saldo ----");
-                System.out.println("-------- 4.Rellenar --------");
+                System.out.println("--- 1.Comprobar depositos -");
+                System.out.println("--- 2.Comprobar estados ---");
+                System.out.println("--- 3.Comprobar saldo -----");
+                System.out.println("--- 4.Rellenar ------------");
                 System.out.println("---------------------------");
-                System.out.println("---------- 5.Salir ---------");
+                System.out.println("---------- 5.Salir --------");
                 System.out.println("---------------------------");
                 opcionMenuAdministrar = teclado.nextInt();
 
@@ -176,19 +176,20 @@ public class Menu {
         
     }
 
-    public static int menuDescafeinado() {
+    public static boolean menuDescafeinado() {
         Scanner teclado = new Scanner(System.in);
-        int opcionMenuAzucar;
+        int opcionMenuDescafeinado;
         do {
             System.out.println("------------------------");
-            System.out.println("---- ¿Descafeinado? ---");
+            System.out.println("---- ¿Descafeinado? ----");
             System.out.println("------------------------");
-            System.out.println("---------- 1.Si ---------");
-            System.out.println("--------- 2.No ---------");
+            System.out.println("---------- 1.Si --------");
+            System.out.println("---------- 2.No --------");
             System.out.println("------------------------");
-            opcionMenuAzucar = teclado.nextInt();
-        } while (opcionMenuAzucar > 2 || opcionMenuAzucar < 1);
-        return opcionMenuAzucar;
+            opcionMenuDescafeinado = teclado.nextInt();
+        } while (opcionMenuDescafeinado > 2 || opcionMenuDescafeinado < 1);
+        
+        return opcionMenuDescafeinado == 1;
     }
     
     public static int menuSaldo() {
@@ -199,7 +200,8 @@ public class Menu {
             System.out.println("-No hay suficiente saldo-");
             System.out.println("-------------------------");
             System.out.println("---- 1.Introducir más ---");
-            System.out.println("--------- 2.Salir --------");
+            System.out.println("-------------------------");
+            System.out.println("--------- 2.Salir -------");
             System.out.println("-------------------------");
             opcionMenuSaldo = teclado.nextInt();
         } while (opcionMenuSaldo > 2 || opcionMenuSaldo < 1);
@@ -212,7 +214,7 @@ public class Menu {
         int opcionMenuRellenar;
         do {
             System.out.println("--------------------------");
-            System.out.println("-¿Cómo quieres rellenar?-");
+            System.out.println("-¿Cómo quieres rellenar?--");
             System.out.println("--------------------------");
             System.out.println("------- 1. Entero --------");
             System.out.println("---- 2. Con x cantidad ---");
@@ -225,17 +227,18 @@ public class Menu {
     
     public static int menuRellenarCantidad() {
         Scanner teclado = new Scanner(System.in);
-        System.out.println("----------------------------");
+        System.out.println("-----------------------------");
         System.out.println("---- Inserte la cantidad ----");
-        System.out.println("----------------------------");
-        System.out.println("-- :                               --");
-        System.out.println("----------------------------");
+        System.out.println("-----------------------------");
+        System.out.println("-- :                      ---");
+        System.out.println("-----------------------------");
         int opcionMenuRellenarCantidad = teclado.nextInt();
         return opcionMenuRellenarCantidad;
     }
     
-    public static void comprado(String nomProducto)  {
-        System.out.println("Aqui tiene su " + nomProducto + ", gracias por su compra");
+    public static void comprado(String nomProducto, boolean esDescafeinado)  {
+        String descafeinado = esDescafeinado ? " descafeinado" : "";
+        System.out.println("Aqui tiene su " + nomProducto + descafeinado + ", gracias por su compra");
     }
     
 

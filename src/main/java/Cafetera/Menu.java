@@ -17,11 +17,11 @@ public class Menu {
     public static int menuPrincipal() {
         Scanner teclado = new Scanner(System.in);
         boolean validInput = false;
-       
+
         int opcionMenuPrincipal = 0;
         while (!validInput) {
-            try {                          
-                
+            try {
+
                 do {
                     System.out.println("-------------------------");
                     System.out.println("-Bienvenido a daw coffee-");
@@ -33,86 +33,131 @@ public class Menu {
                     System.out.println("-------------------------");
                     opcionMenuPrincipal = teclado.nextInt();
                 } while (opcionMenuPrincipal > 3 || opcionMenuPrincipal < 1);
-                
-                 validInput = true;
-                
+
+                validInput = true;
+
             } catch (InputMismatchException e) {
                 System.out.println("Por favor, introduzca un número");
                 teclado.next();
             }
         }
 
-
         return opcionMenuPrincipal;
+
     }
 
     public static double menuPagar() {
         Scanner teclado = new Scanner(System.in);
-        double opcionMenuPagar;
-        do {
-            System.out.println("--------------------------");
-            System.out.println("-- Introduzca el dinero --");
-            System.out.println("--------------------------");
-            System.out.println("--:                     --");
-            System.out.println("--------------------------");
-            System.out.println("--------- 3.Salir --------");
-            System.out.println("--------------------------");
-            opcionMenuPagar = teclado.nextDouble();
-        } while (opcionMenuPagar < 0.50);
+        boolean validInput = false;
 
+        double opcionMenuPagar = 0;
+        while (!validInput) {
+            try {
+
+                do {
+                    System.out.println("--------------------------");
+                    System.out.println("-- Introduzca el dinero --");
+                    System.out.println("--------------------------");
+                    System.out.println("--:                     --");
+                    System.out.println("--------------------------");
+                    System.out.println("--------- 3.Salir --------");
+                    System.out.println("--------------------------");
+                    opcionMenuPagar = teclado.nextDouble();
+                } while (opcionMenuPagar < 0.50);
+
+                validInput = true;
+
+            } catch (InputMismatchException e) {
+                System.out.println("Por favor, introduzca un número");
+                teclado.next();
+            }
+        }
         return opcionMenuPagar;
     }
 
     public static int saldoInsuficiente() {
         Scanner teclado = new Scanner(System.in);
-        int opcionSaldoInsuficiente;
-        System.out.println("----------------------------------------------------");
-        System.out.println("-----Saldo insuficiente el mínimo es 0,50 (leche)---");
-        System.out.println("---------------- ¿Introducir más? ------------------");
-        System.out.println("---------------------- 1. Si ------------------------");
-        System.out.println("------------------- 2. No (salir) -------------------");
-        System.out.println("----------------------------------------------------");
-        opcionSaldoInsuficiente = teclado.nextInt();
+        boolean validInput = false;
+
+        int opcionSaldoInsuficiente = 0;
+        while (!validInput) {
+            try {
+
+                System.out.println("----------------------------------------------------");
+                System.out.println("-----Saldo insuficiente el mínimo es 0,50 (leche)---");
+                System.out.println("---------------- ¿Introducir más? ------------------");
+                System.out.println("---------------------- 1. Si ------------------------");
+                System.out.println("------------------- 2. No (salir) -------------------");
+                System.out.println("----------------------------------------------------");
+                opcionSaldoInsuficiente = teclado.nextInt();
+                return opcionSaldoInsuficiente;
+            } catch (InputMismatchException e) {
+                System.out.println("Por favor, introduzca un número");
+                teclado.next();
+            }
+        }
         return opcionSaldoInsuficiente;
     }
 
     public static int menuProducto() {
         Scanner teclado = new Scanner(System.in);
-        int opcionMenuProducto;
-        do {
-            System.out.println("------------------------");
-            System.out.println("------ Daw Coffee ------");
-            System.out.println("------------------------");
-            System.out.println("-Selecciona un producto-");
-            System.out.println("------------------------");
-            System.out.println("------ 1.Cafe solo------");
-            System.out.println("--- 2.Cafe con leche ---");
-            System.out.println("----- 3- Cafe largo ----");
-            System.out.println("---- 4.Cafe cortado ----");
-            System.out.println("------ 5.Chocolate -----");
-            System.out.println("-------- 6.Leche -------");
-            System.out.println("------------------------");
-            System.out.println("-------- 7.Salir -------");
-            System.out.println("------------------------");
-            opcionMenuProducto = teclado.nextInt();
-        } while (opcionMenuProducto > 7 || opcionMenuProducto < 1);
+        boolean validInput = false;
+
+        int opcionMenuProducto = 0;
+        while (!validInput) {
+            try {
+
+                do {
+                    System.out.println("------------------------");
+                    System.out.println("------ Daw Coffee ------");
+                    System.out.println("------------------------");
+                    System.out.println("-Selecciona un producto-");
+                    System.out.println("------------------------");
+                    System.out.println("------ 1.Cafe solo------");
+                    System.out.println("--- 2.Cafe con leche ---");
+                    System.out.println("----- 3- Cafe largo ----");
+                    System.out.println("---- 4.Cafe cortado ----");
+                    System.out.println("------ 5.Chocolate -----");
+                    System.out.println("-------- 6.Leche -------");
+                    System.out.println("------------------------");
+                    System.out.println("-------- 7.Salir -------");
+                    System.out.println("------------------------");
+                    opcionMenuProducto = teclado.nextInt();
+                } while (opcionMenuProducto > 7 || opcionMenuProducto < 1);
+                return opcionMenuProducto;
+            } catch (InputMismatchException e) {
+                System.out.println("Por favor, introduzca un número");
+                teclado.next();
+            }
+        }
         return opcionMenuProducto;
     }
 
     public static int menuAzucar() {
         Scanner teclado = new Scanner(System.in);
-        int opcionMenuAzucar;
-        do {
-            System.out.println("------------------------");
-            System.out.println("-Seleccione la cantidad-");
-            System.out.println("-------de azucar--------");
-            System.out.println("------------------------");
-            System.out.println("------- 1.Ninguna ------");
-            System.out.println("------- 2.Poca ---------");
-            System.out.println("------- 3.Mucha --------");
-            System.out.println("------------------------");
-            opcionMenuAzucar = teclado.nextInt();
-        } while (opcionMenuAzucar > 3 || opcionMenuAzucar < 1);
+        boolean validInput = false;
+
+        int opcionMenuAzucar = 0;
+        while (!validInput) {
+            try {
+
+                do {
+                    System.out.println("------------------------");
+                    System.out.println("-Seleccione la cantidad-");
+                    System.out.println("-------de azucar--------");
+                    System.out.println("------------------------");
+                    System.out.println("------- 1.Ninguna ------");
+                    System.out.println("------- 2.Poca ---------");
+                    System.out.println("------- 3.Mucha --------");
+                    System.out.println("------------------------");
+                    opcionMenuAzucar = teclado.nextInt();
+                } while (opcionMenuAzucar > 3 || opcionMenuAzucar < 1);
+                return opcionMenuAzucar;
+            } catch (InputMismatchException e) {
+                System.out.println("Por favor, introduzca un número");
+                teclado.next();
+            }
+        }
         return opcionMenuAzucar;
     }
 

@@ -11,6 +11,7 @@ package Cafetera;
  */
 public class Cafetera {
 
+    //ATRIBUTOS
     private Deposito depositoCafe;
     private Deposito depositoAgua;
     private Deposito depositoLeche;
@@ -34,6 +35,8 @@ public class Cafetera {
     }
 
     //MÉTODOS
+    //En este método mostramos el menú principal con las dos opciones principales,
+    //el programa solo acaba cuando pulsamos el 3
     public void inicializar() {
         int aux;
         do {
@@ -51,38 +54,38 @@ public class Cafetera {
         } while (aux != 3);
     }
 
+    //Este método es el que se encarga principalmente de la venta en sí
+    //y va llamando a los 
     public void venta() {
 
         double dineroIntroducido = Menu.menuPagar();
         this.monedero.introducirDinero(dineroIntroducido);
         boolean esDescafeinado = false;
+        int cantidadAzucar;
 
         Productos productoElegido = elegirProducto();
-
-        if (haySuficienteSaldo(productoElegido)) {
+        if(productoElegido != null){
             
-           int cantidadAzucar = cantidadAzucar();
-           
-           if(productoElegido != Productos.LECHE && productoElegido != Productos.CHOCO){
+           if (haySuficienteSaldo(productoElegido)) {                      
+             cantidadAzucar = cantidadAzucar();            
+                        
+           if (productoElegido != Productos.LECHE && productoElegido != Productos.CHOCO){
               esDescafeinado  = Menu.menuDescafeinado();
            }
            
-           if(haySuficienteProducto(productoElegido, cantidadAzucar)){
+           if (haySuficienteProducto(productoElegido, cantidadAzucar)){
                
                cogerIngredientes(productoElegido, cantidadAzucar);
                
                Menu.comprado(productoElegido.getNombre(), esDescafeinado);
                monedero.sumarSaldo();
-               monedero.setSaldoCliente(0);               
-                              
+               monedero.setSaldoCliente(0);                       
+           }                        
+           } else {          
+                introducirMasDinero();
            }
-                        
-        } else {          
-            introducirMasDinero();
-
-        }
-
-    }
+        } 
+   }
 
     public Productos elegirProducto() {
         int aux;

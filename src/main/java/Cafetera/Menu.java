@@ -42,8 +42,8 @@ public class Menu {
             System.out.println("--------------------------");
             System.out.println("--------- 3.Salir --------");
             System.out.println("--------------------------");
-            opcionMenuPagar = teclado.nextInt();
-        } while (opcionMenuPagar > 0.50);
+            opcionMenuPagar = teclado.nextDouble();
+        } while (opcionMenuPagar < 0.50);
 
         return opcionMenuPagar;
     }

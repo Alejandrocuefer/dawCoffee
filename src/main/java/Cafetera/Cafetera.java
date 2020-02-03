@@ -55,6 +55,7 @@ public class Cafetera {
 
         double dineroIntroducido = Menu.menuPagar();
         this.monedero.introducirDinero(dineroIntroducido);
+        boolean esDescafeinado = false;
 
         Productos productoElegido = elegirProducto();
 
@@ -62,16 +63,20 @@ public class Cafetera {
             
            int cantidadAzucar = cantidadAzucar();
            
+           if(productoElegido != Productos.LECHE && productoElegido != Productos.CHOCO){
+              esDescafeinado  = Menu.menuDescafeinado();
+           }
+           
            if(haySuficienteProducto(productoElegido, cantidadAzucar)){
                
                cogerIngredientes(productoElegido, cantidadAzucar);
                
+               Menu.comprado(productoElegido.getNombre(), esDescafeinado);
                monedero.sumarSaldo();
-               monedero.setSaldoCliente(0);
-               
+               monedero.setSaldoCliente(0);               
+                              
            }
-            
-            
+                        
         } else {          
             introducirMasDinero();
 
@@ -81,7 +86,8 @@ public class Cafetera {
 
     public Productos elegirProducto() {
         int aux;
-        Productos productoElegido;
+        boolean salir = false;
+        Productos productoElegido = null;
         do {
             aux = Menu.menuProducto();
 
@@ -89,28 +95,33 @@ public class Cafetera {
 
                 case 1:
                     productoElegido = Productos.CAFE_SOLO;
-                    break;
+                    return productoElegido;
+               
                 case 2:
                     productoElegido = Productos.CAFE_LECHE;
-                    break;
+                    return productoElegido;
+                
                 case 3:
                     productoElegido = Productos.CAFE_LARGO;
-                    break;
+                    return productoElegido;
+               
                 case 4:
                     productoElegido = Productos.CAFE_CORTADO;
-                    break;
+                    return productoElegido;
+                 
                 case 5:
                     productoElegido = Productos.CHOCO;
-                    break;
+                    return productoElegido;
+                 
                 case 6:
                     productoElegido = Productos.LECHE;
-                    break;
-                default:
-                    productoElegido = Productos.CAFE_SOLO;
+                    return productoElegido;                 
+                case 7:
+                    salir = true;
                     break;
             }
 
-        } while (aux != 7);
+        } while (!salir);
 
         return productoElegido;
     }
@@ -272,6 +283,7 @@ public class Cafetera {
     public Deposito elegirDeposito() {
         int aux;
         Deposito depositoElegido;
+        boolean salir = false;
         do {
             aux = Menu.menuDepositos();
 
@@ -279,27 +291,29 @@ public class Cafetera {
 
                 case 1:
                     depositoElegido = depositoCafe;
-                    break;
+                    return depositoElegido;
                 case 2:
                     depositoElegido = depositoAgua;
-                    break;
+                    return depositoElegido;
                 case 3:
                     depositoElegido = depositoLeche;
-                    break;
+                    return depositoElegido;
                 case 4:
                     depositoElegido = depositoAzucar;
-                    break;
+                    return depositoElegido;
                 case 5:
                     depositoElegido = depositoChocolate;
-                    break;
+                    return depositoElegido;
+                case 6:
+                    salir = true;
+                    return depositoElegido = null;
                 default:
                     depositoElegido = depositoCafe;
-                    break;
+                    return depositoElegido;
             }
 
         } while (aux != 6);
 
-        return depositoElegido;
     }
 
     //GETTERS & SETTERS

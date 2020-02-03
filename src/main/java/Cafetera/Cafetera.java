@@ -54,39 +54,50 @@ public class Cafetera {
         } while (aux != 3);
     }
 
-    //Este método es el que se encarga principalmente de la venta en sí
-    //y va llamando a los 
+    //Este método es el que se gestiona principalmente de la venta en sí
+    //y va llamando a los métodos de los menús y a los submétodos necesarios
     public void venta() {
-
-        double dineroIntroducido = Menu.menuPagar();
-        this.monedero.introducirDinero(dineroIntroducido);
+        //creamos las variables que usaremos en el método
         boolean esDescafeinado = false;
         int cantidadAzucar;
-
+        
+        //Introducir dinero y guardarlo en el monedero
+        double dineroIntroducido = Menu.menuPagar();        
+        this.monedero.introducirDinero(dineroIntroducido);
+        
+        //Elegir el producto con el que trabajaremos
         Productos productoElegido = elegirProducto();
         if(productoElegido != null){
             
+           //comprobamos que hay suficiente saldo para continuar
            if (haySuficienteSaldo(productoElegido)) {                      
              cantidadAzucar = cantidadAzucar();            
-                        
+           
+           //en caso afirmativo se pregunta al usuario si quiere el café descafeinado, solo en caso de que haya pedido café            
            if (productoElegido != Productos.LECHE && productoElegido != Productos.CHOCO){
               esDescafeinado  = Menu.menuDescafeinado();
            }
-           
+           //Comprobamos que haya suficiente producto en cada depósito
            if (haySuficienteProducto(productoElegido, cantidadAzucar)){
                
+               //en caso afirmativo se hará la venta efectiva:
+                //Restamos solo los ingredientes necesarios para el producto seleccionado de los depósitos
                cogerIngredientes(productoElegido, cantidadAzucar);
-               
+               //muestra un mensaje del producto elegido
                Menu.comprado(productoElegido.getNombre(), esDescafeinado);
+               //actualizamos el monedero;
                monedero.sumarSaldo();
                monedero.setSaldoCliente(0);                       
-           }                        
+           } 
+           //Si no hay suficiente saldo:
            } else {          
                 introducirMasDinero();
            }
         } 
    }
-
+    //Método que nos mostrará un menú para escoger el producto que deseamos 
+    //Devuelve el producto escogido o null en caso de que escojamos la opción 7.- Salir.
+    //Y por lo tanto no se relizará la venta y el programá continuará mostrando el menú anterior
     public Productos elegirProducto() {
         int aux;
         boolean salir = false;
@@ -129,16 +140,19 @@ public class Cafetera {
         return productoElegido;
     }
     
-    public void cogerIngredientes(Productos productoEscogido, int cantidadAzucar){
-        
-                depositoCafe.rellenarCantidadDeposito(productoEscogido.getCantidadCafe());
-                depositoAgua.rellenarCantidadDeposito(productoEscogido.getCantidadCafe());
-                depositoLeche.rellenarCantidadDeposito(productoEscogido.getCantidadCafe());
-                depositoAzucar.rellenarCantidadDeposito(cantidadAzucar);
-                depositoChocolate.rellenarCantidadDeposito(productoEscogido.getCantidadCafe());
+    //Resta la cantidad de producto de cada depósito
+    //dependiendo del producto escogido y la cantidad de azucar seleccionada
+    public void cogerIngredientes(Productos productoEscogido, int cantidadAzucar){        
+                depositoCafe.restarCantidadDeposito(productoEscogido.getCantidadCafe());
+                depositoAgua.restarCantidadDeposito(productoEscogido.getCantidadCafe());
+                depositoLeche.restarCantidadDeposito(productoEscogido.getCantidadCafe());
+                depositoAzucar.restarCantidadDeposito(cantidadAzucar);
+                depositoChocolate.restarCantidadDeposito(productoEscogido.getCantidadCafe());
         
     }
-
+    
+    //Comprueba que hay suficiente en los depósitos para el producto elegido
+    //devuelve false en caso de que cualquiera de los depósitos no tenga suficiente
     public boolean haySuficienteProducto(Productos productoEscogido, int cantidadAzucar) {
         if (productoEscogido.getCantidadAgua() >= this.depositoAgua.getCapacidadActual()) {
             return false;
@@ -158,11 +172,13 @@ public class Cafetera {
         return true;
     }
 
+    //comprueba si el saldo es suficiente para realizar la venta
     public boolean haySuficienteSaldo(Productos productoEscogido) {
 
         return productoEscogido.getPrecio() <= this.monedero.getSaldoCliente();
     }
     
+    //muestra el mneú para seleccionar y devolver la cantidad de azucar deseada
     public int cantidadAzucar(){
         int aux;        
         int cantidadAzucar;

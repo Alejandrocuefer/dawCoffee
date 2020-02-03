@@ -5,6 +5,7 @@
  */
 package Cafetera;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -15,22 +16,39 @@ public class Menu {
 
     public static int menuPrincipal() {
         Scanner teclado = new Scanner(System.in);
-        int opcionMenuPrincipal;
-        do {
-            System.out.println("-------------------------");
-            System.out.println("-Bienvenido a daw coffee-");
-            System.out.println("-------------------------");
-            System.out.println("-- 1.Comprar productos --");
-            System.out.println("---- 2.Administrador ----");
-            System.out.println("-------------------------");
-            System.out.println("-------- 3.Salir --------");
-            System.out.println("-------------------------");
-            opcionMenuPrincipal = teclado.nextInt();
-        } while (opcionMenuPrincipal > 3 || opcionMenuPrincipal < 1);
+        boolean validInput = false;
+        int val = 0;
+        int opcionMenuPrincipal = 0;
+        while (!validInput) {
+            try {
+                val = teclado.nextInt();
+                validInput = true;
+                
+                do {
+                    System.out.println("-------------------------");
+                    System.out.println("-Bienvenido a daw coffee-");
+                    System.out.println("-------------------------");
+                    System.out.println("-- 1.Comprar productos --");
+                    System.out.println("---- 2.Administrador ----");
+                    System.out.println("-------------------------");
+                    System.out.println("-------- 3.Salir --------");
+                    System.out.println("-------------------------");
+                    opcionMenuPrincipal = teclado.nextInt();
+                } while (opcionMenuPrincipal > 3 || opcionMenuPrincipal < 1);
+                
+                
+                
+            } catch (InputMismatchException e) {
+                System.out.println("Please enter an integer!");
+                teclado.next();
+            }
+        }
+
+        System.out.println("You entered: " + val);
 
         return opcionMenuPrincipal;
     }
-    
+
     public static double menuPagar() {
         Scanner teclado = new Scanner(System.in);
         double opcionMenuPagar;
@@ -47,7 +65,7 @@ public class Menu {
 
         return opcionMenuPagar;
     }
-    
+
     public static int saldoInsuficiente() {
         Scanner teclado = new Scanner(System.in);
         int opcionSaldoInsuficiente;
@@ -173,7 +191,7 @@ public class Menu {
             }
         } while (opcionMenuAdministrar > 5 || opcionMenuAdministrar < 1);
         return opcionMenuAdministrar;
-        
+
     }
 
     public static boolean menuDescafeinado() {
@@ -188,10 +206,10 @@ public class Menu {
             System.out.println("------------------------");
             opcionMenuDescafeinado = teclado.nextInt();
         } while (opcionMenuDescafeinado > 2 || opcionMenuDescafeinado < 1);
-        
+
         return opcionMenuDescafeinado == 1;
     }
-    
+
     public static int menuSaldo() {
         Scanner teclado = new Scanner(System.in);
         int opcionMenuSaldo;
@@ -208,7 +226,7 @@ public class Menu {
 
         return opcionMenuSaldo;
     }
-    
+
     public static int menuRellenar() {
         Scanner teclado = new Scanner(System.in);
         int opcionMenuRellenar;
@@ -224,7 +242,7 @@ public class Menu {
 
         return opcionMenuRellenar;
     }
-    
+
     public static int menuRellenarCantidad() {
         Scanner teclado = new Scanner(System.in);
         System.out.println("-----------------------------");
@@ -235,12 +253,10 @@ public class Menu {
         int opcionMenuRellenarCantidad = teclado.nextInt();
         return opcionMenuRellenarCantidad;
     }
-    
-    public static void comprado(String nomProducto, boolean esDescafeinado)  {
+
+    public static void comprado(String nomProducto, boolean esDescafeinado) {
         String descafeinado = esDescafeinado ? " descafeinado" : "";
         System.out.println("Aqui tiene su " + nomProducto + descafeinado + ", gracias por su compra");
     }
-    
-
 
 }

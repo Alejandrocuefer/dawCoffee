@@ -17,12 +17,10 @@ public class Menu {
     public static int menuPrincipal() {
         Scanner teclado = new Scanner(System.in);
         boolean validInput = false;
-        int val = 0;
+       
         int opcionMenuPrincipal = 0;
         while (!validInput) {
-            try {
-                val = teclado.nextInt();
-                validInput = true;
+            try {                          
                 
                 do {
                     System.out.println("-------------------------");
@@ -36,15 +34,14 @@ public class Menu {
                     opcionMenuPrincipal = teclado.nextInt();
                 } while (opcionMenuPrincipal > 3 || opcionMenuPrincipal < 1);
                 
-                
+                 validInput = true;
                 
             } catch (InputMismatchException e) {
-                System.out.println("Please enter an integer!");
+                System.out.println("Por favor, introduzca un número");
                 teclado.next();
             }
         }
 
-        System.out.println("You entered: " + val);
 
         return opcionMenuPrincipal;
     }
@@ -70,10 +67,10 @@ public class Menu {
         Scanner teclado = new Scanner(System.in);
         int opcionSaldoInsuficiente;
         System.out.println("----------------------------------------------------");
-        System.out.println("-----Saldo insuficiente el mínimo es 0,50 (leche)----");
+        System.out.println("-----Saldo insuficiente el mínimo es 0,50 (leche)---");
         System.out.println("---------------- ¿Introducir más? ------------------");
         System.out.println("---------------------- 1. Si ------------------------");
-        System.out.println("------------------- 2. No (salir) --------------------");
+        System.out.println("------------------- 2. No (salir) -------------------");
         System.out.println("----------------------------------------------------");
         opcionSaldoInsuficiente = teclado.nextInt();
         return opcionSaldoInsuficiente;

@@ -207,19 +207,17 @@ public class Cafetera {
     public void introducirMasDinero() {
 
         int aux = Menu.saldoInsuficiente();
-
+        boolean salir = false;
         do {
             switch (aux) {
                 case 1:
                     Menu.menuPagar();
                     break;
                 case 2:
-                    break;
-                default:
-                    aux = 2;
+                    salir = true;
                     break;
             }
-        } while (aux != 2);
+        } while (!salir);
     }
 
     public void administrar() {
